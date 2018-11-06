@@ -23,31 +23,35 @@ public class Game {
         //TileState Bonkers = board[row][column];
 
         // if tile is blank, fill it
-        if (TileState.BLANK == board[row][column]){
+        if (TileState.BLANK == board[row][column]) {
 
 
-            if (playerOneTurn == true){
-                return TileState.CROSS;
+            if (playerOneTurn == true) {
+                board[row][column] = TileState.CROSS;
 
                 // move turn to player two
                 playerOneTurn = false;
+                return TileState.CROSS;
 
             }
             else {
-                return TileState.CIRCLE;
+                board[row][column] = TileState.CIRCLE;
 
                 // move turn back to player one
                 playerOneTurn = true;
+                return TileState.CIRCLE;
+
             }
+        }
         else{
                 return TileState.INVALID;
 
             }
         }
 
+        //public GameState won(){
+        //break;
 
 
 
-
-    }
 }
