@@ -1,6 +1,10 @@
 package com.example.wvand.tictactoe;
 
-public class Game {
+import android.view.View;
+
+import java.io.Serializable;
+
+public class Game implements Serializable {
     final private int BOARD_SIZE = 3;
     private TileState[][] board;
 
@@ -10,8 +14,8 @@ public class Game {
 
     public Game() {
         board = new TileState[BOARD_SIZE][BOARD_SIZE];
-        for(int i=0; i<BOARD_SIZE; i++)
-            for(int j=0; j<BOARD_SIZE; j++)
+        for (int i = 0; i < BOARD_SIZE; i++)
+            for (int j = 0; j < BOARD_SIZE; j++)
                 board[i][j] = TileState.BLANK;
 
         playerOneTurn = true;
@@ -33,8 +37,7 @@ public class Game {
                 playerOneTurn = false;
                 return TileState.CROSS;
 
-            }
-            else {
+            } else {
                 board[row][column] = TileState.CIRCLE;
 
                 // move turn back to player one
@@ -42,16 +45,88 @@ public class Game {
                 return TileState.CIRCLE;
 
             }
-        }
-        else{
-                return TileState.INVALID;
+        } else {
+            return TileState.INVALID;
 
+        }
+    }
+
+    public GameState won() {
+
+        int xcounter = 0;
+        int ocounter = 0;
+
+        // Initialize variables X, O and b for more succinct loop
+        TileState X = TileState.CROSS;
+        TileState O = TileState.CIRCLE;
+        int b = BOARD_SIZE;
+
+        // Loop over horizontal wins: rows increase by loop, columns hardcoded
+        int j = 0;
+        for (int i = 0; i < b; i++)
+            if ((board[i][j] == X) && (board[i][j + 1] == X) && (board[i][j + 2] == X)){
+                System.out.println("WINNING");
+                return GameState.PLAYER_ONE;
+            }
+            else if ((board[i][j] == O) && (board[i][j + 1] == O) && (board[i][j + 2] == O)){
+                System.out.println("WINNING2");
+                return GameState.PLAYER_TWO;
+            }
+
+        // Loop over vertical wins: columns increase by loop, rows hardcoded
+        int i = 0;
+        for (int k = 0; k < b; k++)
+            if ((board[i][k] == X) && (board[i + 1][k] == X) && (board[i + 2][k] == X)){
+                System.out.println("WINNORZ");
+                return GameState.PLAYER_ONE;
+            }
+            else if ((board[i][k] == O) && (board[i + 1][k] == O) && (board[i + 2][k] == O)){
+                System.out.println("WINNORZ2");
+                return GameState.PLAYER_TWO;
+            }
+
+        // Loop over diagonal wins left-right-down with a counter
+        xcounter = 0;
+        ocounter = 0;
+        for (int l = 0; l < b; l++)
+            if (board[l][l] == X) {
+                xcounter++;
+                if (xcounter == 3) {
+                    System.out.println("DIAGONALTESTWIN");
+                    return GameState.PLAYER_ONE;
+                }
+            }
+            else if (board[l][l] == O) {
+                ocounter++;
+                if (ocounter == 3){
+                    System.out.println("DIAGONALTESTWINO");
+                    return GameState.PLAYER_TWO;
+                }
+            }
+
+         // Loop over diagonal wins left-right-up with a counter
+        int m = 0;
+        int o = 0;
+        xcounter = 0;
+        ocounter = 0;
+        for (int l = 2; l >= 0; l--) {
+            if (board[l][m] == X) {
+                xcounter++;
+                m++;
+                if (xcounter == 3) {
+                    System.out.println("DIAGONALTESTWIN2");
+                    return GameState.PLAYER_ONE;
+                }
+            }
+            if (board[l][o] == O) {
+                ocounter++;
+                o++;
+                if (ocounter == 3) {
+                    System.out.println("DIAGONALTESTWIN2o");
+                    return GameState.PLAYER_TWO;
+                }
             }
         }
-
-        //public GameState won(){
-        //break;
-
-
-
+        return GameState.IN_PROGRESS;
+    }
 }
