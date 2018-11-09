@@ -22,7 +22,7 @@
             <Button
                 android:id="@+id/Button1"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_height="70dp"
                 android:onClick="tileClicked"
                 android:textSize="40sp"
                 app:layout_column="0"
@@ -31,7 +31,7 @@
             <Button
                 android:id="@+id/Button2"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_height="70dp"
                 android:onClick="tileClicked"
                 android:textSize="40sp"
                 app:layout_column="1"
@@ -40,7 +40,7 @@
             <Button
                 android:id="@+id/Button3"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_height="70dp"
                 android:onClick="tileClicked"
                 android:textSize="40sp"
                 app:layout_column="2"
@@ -49,7 +49,7 @@
             <Button
                 android:id="@+id/Button4"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_height="70dp"
                 android:onClick="tileClicked"
                 android:textSize="40sp"
                 app:layout_column="0"
@@ -58,7 +58,7 @@
             <Button
                 android:id="@+id/Button5"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_height="70dp"
                 android:onClick="tileClicked"
                 android:textSize="40sp"
                 app:layout_column="1"
@@ -67,7 +67,7 @@
             <Button
                 android:id="@+id/Button6"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_height="70dp"
                 android:onClick="tileClicked"
                 android:textSize="40sp"
                 app:layout_column="2"
@@ -76,7 +76,7 @@
             <Button
                 android:id="@+id/Button7"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_height="70dp"
                 android:onClick="tileClicked"
                 android:textSize="40sp"
                 app:layout_column="0"
@@ -85,7 +85,7 @@
             <Button
                 android:id="@+id/Button8"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_height="70dp"
                 android:onClick="tileClicked"
                 android:textSize="40sp"
                 app:layout_column="1"
@@ -94,7 +94,7 @@
             <Button
                 android:id="@+id/Button9"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_height="70dp"
                 android:onClick="tileClicked"
                 android:textSize="40sp"
                 app:layout_column="2"
@@ -104,7 +104,7 @@
         <TextView
             android:id="@+id/Player_two"
             android:layout_width="match_parent"
-            android:layout_height="77dp"
+            android:layout_height="20dp"
             android:layout_weight="1"
             android:text="Player two won!"
             android:textAlignment="center"
@@ -116,24 +116,24 @@
         <TextView
             android:id="@+id/Draw"
             android:layout_width="match_parent"
-            android:layout_height="77dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Draw! Press reset to play again!"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:visibility="invisible" />
 
         <TextView
             android:id="@+id/Player_one"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:text="Player one won!"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
             android:textColorLink="@color/colorAccent"
-            android:textSize="48sp"
+            android:textSize="20sp"
             android:visibility="invisible" />
     </FrameLayout>
 

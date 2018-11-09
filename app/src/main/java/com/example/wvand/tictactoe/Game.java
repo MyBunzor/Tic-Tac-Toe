@@ -22,9 +22,16 @@ public class Game implements Serializable {
         gameOver = false;
     }
 
-    public TileState choose(int row, int column) {
+    //public getStates() {
+    //    for (int i; i < BOARD_SIZE; i++) {
+    //        for (int j; j < BOARD_SIZE; j++) {
+    //            return (TileState Smash = TileState[i][j]);
+    //        }
+    //    }
+    //}
 
-        //TileState Bonkers = board[row][column];
+
+    public TileState choose(int row, int column) {
 
         // if tile is blank, fill it
         if (TileState.BLANK == board[row][column]) {
@@ -59,19 +66,20 @@ public class Game implements Serializable {
         // Initialize variables X, O and b for more succinct loop
         TileState X = TileState.CROSS;
         TileState O = TileState.CIRCLE;
+        TileState Blank = TileState.BLANK;
         int b = BOARD_SIZE;
 
         // Loop over horizontal wins: rows increase by loop, columns hardcoded
         int j = 0;
-        for (int i = 0; i < b; i++)
-            if ((board[i][j] == X) && (board[i][j + 1] == X) && (board[i][j + 2] == X)){
+        for (int i = 0; i < b; i++) {
+            if ((board[i][j] == X) && (board[i][j + 1] == X) && (board[i][j + 2] == X)) {
                 System.out.println("WINNING");
                 return GameState.PLAYER_ONE;
-            }
-            else if ((board[i][j] == O) && (board[i][j + 1] == O) && (board[i][j + 2] == O)){
+            } else if ((board[i][j] == O) && (board[i][j + 1] == O) && (board[i][j + 2] == O)) {
                 System.out.println("WINNING2");
                 return GameState.PLAYER_TWO;
             }
+        }
 
         // Loop over vertical wins: columns increase by loop, rows hardcoded
         int i = 0;
@@ -126,6 +134,12 @@ public class Game implements Serializable {
                     return GameState.PLAYER_TWO;
                 }
             }
+        }
+        if (!(board[0][0] == Blank) && !(board[0][1] == Blank) && !(board[0][2] == Blank) &&
+                !(board[1][0] == Blank) && !(board[1][1] == Blank) && !(board[1][2] == Blank)
+                && !(board[2][0] == Blank) && !(board[2][1] == Blank) && !(board[2][2] == Blank)){
+            System.out.println("SHEIZEdraw");
+            return GameState.DRAW;
         }
         return GameState.IN_PROGRESS;
     }

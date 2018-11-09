@@ -3,6 +3,7 @@ package com.example.wvand.tictactoe;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.TextView;
 
@@ -15,8 +16,31 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
-        game = new Game();
+        if (savedInstanceState == null) {
+            game = new Game();
+        }
+        else {
+            game = (Game) savedInstanceState.getSerializable("restoregame");
+        }
+
+        GameState winners = game.won();
+        if (winners == GameState.DRAW) {
+            TextView draw = (TextView) findViewById(R.id.Draw);
+            draw.setVisibility(TextView.VISIBLE);
+            buttonsDisabled();
+        }
+        else if (winners == GameState.PLAYER_ONE) {
+            TextView playerone = (TextView) findViewById(R.id.Player_one);
+            playerone.setVisibility(TextView.VISIBLE);
+            buttonsDisabled();
+        }
+        else if (winners == GameState.PLAYER_TWO){
+            TextView playertwo = (TextView) findViewById(R.id.Player_two);
+            playertwo.setVisibility(TextView.VISIBLE);
+            buttonsDisabled();
+        }
 
        if (savedInstanceState != null) {
            String button1 = (String) savedInstanceState.getSerializable("button1");
@@ -63,6 +87,27 @@ public class MainActivity extends AppCompatActivity {
         return textViewValue;
     }
 
+    public void buttonsDisabled() {
+        Button one = findViewById(R.id.Button1);
+        one.setEnabled(false);
+        Button two = findViewById(R.id.Button2);
+        two.setEnabled(false);
+        Button three = findViewById(R.id.Button3);
+        three.setEnabled(false);
+        Button four = findViewById(R.id.Button4);
+        four.setEnabled(false);
+        Button five = findViewById(R.id.Button5);
+        five.setEnabled(false);
+        Button six = findViewById(R.id.Button6);
+        six.setEnabled(false);
+        Button seven = findViewById(R.id.Button7);
+        seven.setEnabled(false);
+        Button eight = findViewById(R.id.Button8);
+        eight.setEnabled(false);
+        Button nine = findViewById(R.id.Button9);
+        nine.setEnabled(false);
+    }
+
     public void tileClicked(View view){
 
 
@@ -97,6 +142,24 @@ public class MainActivity extends AppCompatActivity {
 
                    }
                    winners = game.won();
+                   if (winners == GameState.DRAW) {
+                       TextView draw = (TextView) findViewById(R.id.Draw);
+                       draw.setVisibility(TextView.VISIBLE);
+                       buttonsDisabled();
+                   }
+                   else if (winners == GameState.PLAYER_ONE) {
+                       TextView playerone = (TextView) findViewById(R.id.Player_one);
+                       playerone.setVisibility(TextView.VISIBLE);
+                       buttonsDisabled();
+                   }
+                   else if (winners == GameState.PLAYER_TWO) {
+                       TextView playertwo = (TextView) findViewById(R.id.Player_two);
+                       playertwo.setVisibility(TextView.VISIBLE);
+                       buttonsDisabled();
+                   }
+                   else if (winners == GameState.IN_PROGRESS) {
+                       break;
+                   }
                    break;
 
                case R.id.Button2:
@@ -125,6 +188,24 @@ public class MainActivity extends AppCompatActivity {
 
                    }
                    winners = game.won();
+                   if (winners == GameState.DRAW) {
+                       TextView draw = (TextView) findViewById(R.id.Draw);
+                       draw.setVisibility(TextView.VISIBLE);
+                       buttonsDisabled();
+                   }
+                   else if (winners == GameState.PLAYER_ONE) {
+                       TextView playerone = (TextView) findViewById(R.id.Player_one);
+                       playerone.setVisibility(TextView.VISIBLE);
+                       buttonsDisabled();
+                   }
+                   else if (winners == GameState.PLAYER_TWO) {
+                       TextView playertwo = (TextView) findViewById(R.id.Player_two);
+                       playertwo.setVisibility(TextView.VISIBLE);
+                       buttonsDisabled();
+                   }
+                   else if (winners == GameState.IN_PROGRESS) {
+                       break;
+                   }
                    break;
 
                case R.id.Button3:
@@ -152,6 +233,24 @@ public class MainActivity extends AppCompatActivity {
 
                    }
                    winners = game.won();
+                   if (winners == GameState.DRAW) {
+                       TextView draw = (TextView) findViewById(R.id.Draw);
+                       draw.setVisibility(TextView.VISIBLE);
+                       buttonsDisabled();
+                   }
+                   else if (winners == GameState.PLAYER_ONE) {
+                       TextView playerone = (TextView) findViewById(R.id.Player_one);
+                       playerone.setVisibility(TextView.VISIBLE);
+                       buttonsDisabled();
+                   }
+                   else if (winners == GameState.PLAYER_TWO) {
+                       TextView playertwo = (TextView) findViewById(R.id.Player_two);
+                       playertwo.setVisibility(TextView.VISIBLE);
+                       buttonsDisabled();
+                   }
+                   else if (winners == GameState.IN_PROGRESS) {
+                       break;
+                   }
                    break;
 
                case R.id.Button4:
@@ -179,6 +278,24 @@ public class MainActivity extends AppCompatActivity {
 
                    }
                    winners = game.won();
+                   if (winners == GameState.DRAW) {
+                       TextView draw = (TextView) findViewById(R.id.Draw);
+                       draw.setVisibility(TextView.VISIBLE);
+                       buttonsDisabled();
+                   }
+                   else if (winners == GameState.PLAYER_ONE) {
+                       TextView playerone = (TextView) findViewById(R.id.Player_one);
+                       playerone.setVisibility(TextView.VISIBLE);
+                       buttonsDisabled();
+                   }
+                   else if (winners == GameState.PLAYER_TWO) {
+                       TextView playertwo = (TextView) findViewById(R.id.Player_two);
+                       playertwo.setVisibility(TextView.VISIBLE);
+                       buttonsDisabled();
+                   }
+                   else if (winners == GameState.IN_PROGRESS) {
+                       break;
+                   }
                    break;
 
                case R.id.Button5:
@@ -206,6 +323,24 @@ public class MainActivity extends AppCompatActivity {
 
                    }
                    winners = game.won();
+                   if (winners == GameState.DRAW) {
+                       TextView draw = (TextView) findViewById(R.id.Draw);
+                       draw.setVisibility(TextView.VISIBLE);
+                       buttonsDisabled();
+                   }
+                   else if (winners == GameState.PLAYER_ONE) {
+                       TextView playerone = (TextView) findViewById(R.id.Player_one);
+                       playerone.setVisibility(TextView.VISIBLE);
+                       buttonsDisabled();
+                   }
+                   else if (winners == GameState.PLAYER_TWO) {
+                       TextView playertwo = (TextView) findViewById(R.id.Player_two);
+                       playertwo.setVisibility(TextView.VISIBLE);
+                       buttonsDisabled();
+                   }
+                   else if (winners == GameState.IN_PROGRESS) {
+                       break;
+                   }
                    break;
 
                case R.id.Button6:
@@ -233,6 +368,24 @@ public class MainActivity extends AppCompatActivity {
 
                    }
                    winners = game.won();
+                   if (winners == GameState.DRAW) {
+                       TextView draw = (TextView) findViewById(R.id.Draw);
+                       draw.setVisibility(TextView.VISIBLE);
+                       buttonsDisabled();
+                   }
+                   else if (winners == GameState.PLAYER_ONE) {
+                       TextView playerone = (TextView) findViewById(R.id.Player_one);
+                       playerone.setVisibility(TextView.VISIBLE);
+                       buttonsDisabled();
+                   }
+                   else if (winners == GameState.PLAYER_TWO) {
+                       TextView playertwo = (TextView) findViewById(R.id.Player_two);
+                       playertwo.setVisibility(TextView.VISIBLE);
+                       buttonsDisabled();
+                   }
+                   else if (winners == GameState.IN_PROGRESS) {
+                       break;
+                   }
                    break;
 
                case R.id.Button7:
@@ -260,6 +413,24 @@ public class MainActivity extends AppCompatActivity {
 
                    }
                    winners = game.won();
+                   if (winners == GameState.DRAW) {
+                       TextView draw = (TextView) findViewById(R.id.Draw);
+                       draw.setVisibility(TextView.VISIBLE);
+                       buttonsDisabled();
+                   }
+                   else if (winners == GameState.PLAYER_ONE) {
+                       TextView playerone = (TextView) findViewById(R.id.Player_one);
+                       playerone.setVisibility(TextView.VISIBLE);
+                       buttonsDisabled();
+                   }
+                   else if (winners == GameState.PLAYER_TWO) {
+                       TextView playertwo = (TextView) findViewById(R.id.Player_two);
+                       playertwo.setVisibility(TextView.VISIBLE);
+                       buttonsDisabled();
+                   }
+                   else if (winners == GameState.IN_PROGRESS) {
+                       break;
+                   }
                    break;
 
                case R.id.Button8:
@@ -287,6 +458,26 @@ public class MainActivity extends AppCompatActivity {
 
                    }
                    winners = game.won();
+                   if (winners == GameState.DRAW) {
+                       TextView draw = (TextView) findViewById(R.id.Draw);
+                       draw.setVisibility(TextView.VISIBLE);
+                       Button eight = findViewById(R.id.Button8);
+                       buttonsDisabled();
+                   }
+                   else if (winners == GameState.PLAYER_ONE) {
+                       TextView playerone = (TextView) findViewById(R.id.Player_one);
+                       playerone.setVisibility(TextView.VISIBLE);
+                       Button eight = findViewById(R.id.Button8);
+                       buttonsDisabled();
+                   }
+                   else if (winners == GameState.PLAYER_TWO) {
+                       TextView playertwo = (TextView) findViewById(R.id.Player_two);
+                       playertwo.setVisibility(TextView.VISIBLE);
+                       buttonsDisabled();
+                   }
+                   else if (winners == GameState.IN_PROGRESS) {
+                       break;
+                   }
                    break;
 
 
@@ -315,6 +506,24 @@ public class MainActivity extends AppCompatActivity {
 
                    }
                    winners = game.won();
+                   if (winners == GameState.DRAW) {
+                       TextView draw = (TextView) findViewById(R.id.Draw);
+                       draw.setVisibility(TextView.VISIBLE);
+                       buttonsDisabled();
+                   }
+                   else if (winners == GameState.PLAYER_ONE) {
+                       TextView playerone = (TextView) findViewById(R.id.Player_one);
+                       playerone.setVisibility(TextView.VISIBLE);
+                       buttonsDisabled();
+                   }
+                   else if (winners == GameState.PLAYER_TWO) {
+                       TextView playertwo = (TextView) findViewById(R.id.Player_two);
+                       playertwo.setVisibility(TextView.VISIBLE);
+                       buttonsDisabled();
+                   }
+                   else if (winners == GameState.IN_PROGRESS) {
+                       break;
+                   }
                    break;
            }
         }
@@ -329,6 +538,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onSaveInstanceState(Bundle outState){
             super.onSaveInstanceState(outState);
+            Game restoregame = game;
+            outState.putSerializable("restoregame", restoregame);
             String button1 = saveIt(R.id.Button1);
             outState.putSerializable("button1", button1);
             String button2 = saveIt(R.id.Button2);
