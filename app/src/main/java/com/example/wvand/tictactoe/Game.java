@@ -22,15 +22,6 @@ public class Game implements Serializable {
         gameOver = false;
     }
 
-    //public getStates() {
-    //    for (int i; i < BOARD_SIZE; i++) {
-    //        for (int j; j < BOARD_SIZE; j++) {
-    //            return (TileState Smash = TileState[i][j]);
-    //        }
-    //    }
-    //}
-
-
     public TileState choose(int row, int column) {
 
         // if tile is blank, fill it
@@ -58,6 +49,7 @@ public class Game implements Serializable {
         }
     }
 
+    // Method that loops over board and checks if game is won / draw / in progress
     public GameState won() {
 
         int xcounter = 0;
@@ -73,10 +65,8 @@ public class Game implements Serializable {
         int j = 0;
         for (int i = 0; i < b; i++) {
             if ((board[i][j] == X) && (board[i][j + 1] == X) && (board[i][j + 2] == X)) {
-                System.out.println("WINNING");
                 return GameState.PLAYER_ONE;
             } else if ((board[i][j] == O) && (board[i][j + 1] == O) && (board[i][j + 2] == O)) {
-                System.out.println("WINNING2");
                 return GameState.PLAYER_TWO;
             }
         }
@@ -85,11 +75,9 @@ public class Game implements Serializable {
         int i = 0;
         for (int k = 0; k < b; k++)
             if ((board[i][k] == X) && (board[i + 1][k] == X) && (board[i + 2][k] == X)){
-                System.out.println("WINNORZ");
                 return GameState.PLAYER_ONE;
             }
             else if ((board[i][k] == O) && (board[i + 1][k] == O) && (board[i + 2][k] == O)){
-                System.out.println("WINNORZ2");
                 return GameState.PLAYER_TWO;
             }
 
@@ -100,14 +88,12 @@ public class Game implements Serializable {
             if (board[l][l] == X) {
                 xcounter++;
                 if (xcounter == 3) {
-                    System.out.println("DIAGONALTESTWIN");
                     return GameState.PLAYER_ONE;
                 }
             }
             else if (board[l][l] == O) {
                 ocounter++;
                 if (ocounter == 3){
-                    System.out.println("DIAGONALTESTWINO");
                     return GameState.PLAYER_TWO;
                 }
             }
@@ -122,7 +108,6 @@ public class Game implements Serializable {
                 xcounter++;
                 m++;
                 if (xcounter == 3) {
-                    System.out.println("DIAGONALTESTWIN2");
                     return GameState.PLAYER_ONE;
                 }
             }
@@ -130,7 +115,6 @@ public class Game implements Serializable {
                 ocounter++;
                 o++;
                 if (ocounter == 3) {
-                    System.out.println("DIAGONALTESTWIN2o");
                     return GameState.PLAYER_TWO;
                 }
             }
@@ -138,7 +122,6 @@ public class Game implements Serializable {
         if (!(board[0][0] == Blank) && !(board[0][1] == Blank) && !(board[0][2] == Blank) &&
                 !(board[1][0] == Blank) && !(board[1][1] == Blank) && !(board[1][2] == Blank)
                 && !(board[2][0] == Blank) && !(board[2][1] == Blank) && !(board[2][2] == Blank)){
-            System.out.println("SHEIZEdraw");
             return GameState.DRAW;
         }
         return GameState.IN_PROGRESS;

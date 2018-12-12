@@ -11,12 +11,14 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Initialise game variable, to fill with new game or check if game is won / draw
     Game game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Check if a game was already in progress, if not, make a new game
         setContentView(R.layout.activity_main);
         if (savedInstanceState == null) {
             game = new Game();
@@ -25,58 +27,61 @@ public class MainActivity extends AppCompatActivity {
             game = (Game) savedInstanceState.getSerializable("restoregame");
         }
 
+        // Method won is called on game to check GameState
         GameState winners = game.won();
+
+        // For each GameState, a different text is visualized (nothing if game is in progress)
         if (winners == GameState.DRAW) {
-            TextView draw = (TextView) findViewById(R.id.Draw);
+            TextView draw = findViewById(R.id.Draw);
             draw.setVisibility(TextView.VISIBLE);
             buttonsDisabled();
         }
         else if (winners == GameState.PLAYER_ONE) {
-            TextView playerone = (TextView) findViewById(R.id.Player_one);
+            TextView playerone = findViewById(R.id.Player_one);
             playerone.setVisibility(TextView.VISIBLE);
             buttonsDisabled();
         }
         else if (winners == GameState.PLAYER_TWO){
-            TextView playertwo = (TextView) findViewById(R.id.Player_two);
+            TextView playertwo = findViewById(R.id.Player_two);
             playertwo.setVisibility(TextView.VISIBLE);
             buttonsDisabled();
         }
 
        if (savedInstanceState != null) {
            String button1 = (String) savedInstanceState.getSerializable("button1");
-           TextView buttonOne = (TextView) findViewById(R.id.Button1);
+           TextView buttonOne = findViewById(R.id.Button1);
            buttonOne.setText(button1);
 
            String button2 = (String) savedInstanceState.getSerializable("button2");
-           TextView buttonTwo = (TextView) findViewById(R.id.Button2);
+           TextView buttonTwo = findViewById(R.id.Button2);
            buttonTwo.setText(button2);
 
            String button3 = (String) savedInstanceState.getSerializable("button3");
-           TextView buttonThree = (TextView) findViewById(R.id.Button3);
+           TextView buttonThree = findViewById(R.id.Button3);
            buttonThree.setText(button3);
 
            String button4 = (String) savedInstanceState.getSerializable("button4");
-           TextView buttonFour = (TextView) findViewById(R.id.Button4);
+           TextView buttonFour = findViewById(R.id.Button4);
            buttonFour.setText(button4);
 
            String button5 = (String) savedInstanceState.getSerializable("button5");
-           TextView buttonFive = (TextView) findViewById(R.id.Button5);
+           TextView buttonFive = findViewById(R.id.Button5);
            buttonFive.setText(button5);
 
            String button6 = (String) savedInstanceState.getSerializable("button6");
-           TextView buttonSix = (TextView) findViewById(R.id.Button6);
+           TextView buttonSix = findViewById(R.id.Button6);
            buttonSix.setText(button6);
 
            String button7 = (String) savedInstanceState.getSerializable("button7");
-           TextView buttonSeven = (TextView) findViewById(R.id.Button7);
+           TextView buttonSeven = findViewById(R.id.Button7);
            buttonSeven.setText(button7);
 
            String button8 = (String) savedInstanceState.getSerializable("button8");
-           TextView buttonEight = (TextView) findViewById(R.id.Button8);
+           TextView buttonEight = findViewById(R.id.Button8);
            buttonEight.setText(button8);
 
            String button9 = (String) savedInstanceState.getSerializable("button9");
-           TextView buttonNine = (TextView) findViewById(R.id.Button9);
+           TextView buttonNine = findViewById(R.id.Button9);
            buttonNine.setText(button9);
        }
     }
